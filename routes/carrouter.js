@@ -31,4 +31,6 @@ router
     .route('/recentbikes/:id')
     .get(carcontroller.recentbikes)
 
+router.route('/likedbikes').get(carcontroller.likedbikes )
+
 module.exports=router

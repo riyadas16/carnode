@@ -45,4 +45,9 @@ exports.recentbikes = async (req, res) => {
     res.status(400).json( {message:"doesnot showing error"})
 }}
 
+exports.likedbikes = async(req,res)=>{
+    const likebike =await car.aggregate([ {$group :{_id:{bikeid:'$_id',liked:'$liked'}}},{$sort:{liked :-1}},{$limit: 1}])
+    res.status(200).json({ likebike })
+}
+
 
